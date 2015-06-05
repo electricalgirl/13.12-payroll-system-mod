@@ -1,0 +1,44 @@
+# Project: 13.12 Payroll System Modification
+# Makefile created by Dev-C++ 5.4.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o Date.o Employee.o SalariedEmployee.o CommissionEmployee.o BasePlusCommissionEmployee.o
+LINKOBJ  = main.o Date.o Employee.o SalariedEmployee.o CommissionEmployee.o BasePlusCommissionEmployee.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+BIN      = "13.12 Payroll System Modification.exe"
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Date.o: Date.cpp
+	$(CPP) -c Date.cpp -o Date.o $(CXXFLAGS)
+
+Employee.o: Employee.cpp
+	$(CPP) -c Employee.cpp -o Employee.o $(CXXFLAGS)
+
+SalariedEmployee.o: SalariedEmployee.cpp
+	$(CPP) -c SalariedEmployee.cpp -o SalariedEmployee.o $(CXXFLAGS)
+
+CommissionEmployee.o: CommissionEmployee.cpp
+	$(CPP) -c CommissionEmployee.cpp -o CommissionEmployee.o $(CXXFLAGS)
+
+BasePlusCommissionEmployee.o: BasePlusCommissionEmployee.cpp
+	$(CPP) -c BasePlusCommissionEmployee.cpp -o BasePlusCommissionEmployee.o $(CXXFLAGS)
